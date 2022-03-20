@@ -1,0 +1,320 @@
+$text1: 'Roboto', sans-serif;
+$text2: 'Shrikhand', cursive;
+$primaire: #9356DC;
+$secondaire: #FF79DA;
+$tertiaire: #99E2D0;
+$mix: linear-gradient(to bottom right, $secondaire, $primaire);
+$hovermix: linear-gradient(to bottom right, (lighten($secondaire, 5)), (lighten($primaire, 5)));
+$bg1: #eeecec;
+$bg2: #f7f5f5;
+$w: 10;
+
+%column {
+    display: flex;
+    flex-direction: column;
+}
+
+%text1{
+     font-family: $text1;
+    }
+
+%text2 {
+    font-family: $text2;
+}
+
+%row {
+    display: flex;
+    flex-direction: row;
+}
+
+%acenter {
+    align-items: center;
+}
+
+@for $m from 0 through 10 {
+    .m-#{$m}{margin:($m+1%)-1;}
+}
+
+@for $w from 0 through 10 {
+    .w-#{$w}{width:($w*10%);}
+}
+
+
+%jcenter {
+    justify-content: center;
+}
+
+
+%tcenter {
+    text-align: center;
+}
+
+%btn {
+    border-radius: 20px;
+    @extend%text1;
+    border-width: 0;
+    padding : 10px;
+    box-shadow: 0px 5px 20px rgb(194, 192, 192);
+
+}
+
+%card {
+    border-radius: 20px;
+    box-shadow: 0px 5px 20px #999;
+    background-color: #ffffff;
+    height: 250px;
+    width: 90%;
+    min-width: 200px;
+}
+.btn {@extend%btn;}
+
+a {
+    text-decoration: none;
+    color:inherit;
+}
+
+.header {
+    @extend %row, %jcenter, %acenter;
+}
+
+.logo {
+    object-fit: contain;
+}
+
+.geolocalisation {
+    background-color: $bg1;
+    @extend %row, %acenter, %jcenter;
+    font-family: $text1;
+    height: 50px;
+    font-weight: bolder;
+
+}
+
+.firstbox {
+    @extend %column, %acenter , %tcenter;
+    background-color: $bg2;
+    margin-bottom: 1%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.t1 {
+    font-size: 2em;
+    font-weight: bold;
+    @extend %text1;
+}
+
+.t2 {
+    @extend %text1;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.t3 {
+    @extend%text1;
+    font-size: 1.2em;
+    font-weight: lighter;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.t4 {
+    @extend%text1;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.t5 {
+    @extend%text1;
+    font-size: 1.2em;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.tspecial {
+    @extend %text2;
+    font-size: 1.5em;
+}
+
+.btn-explorer {
+    background: $mix;
+    color: white;
+    height: 40px;
+    @extend %btn;
+    &:hover {
+        background: $hovermix;
+        box-shadow: 0px 5px 20px rgb(116, 115, 115);
+        color: darken($color: #fff, $amount: 5);
+        cursor: pointer;
+    }
+}
+
+.secondbox {
+    @extend %column,%acenter;
+}
+.circle {
+    border-radius: 50%;
+    background-color: $primaire;
+    width: 30px; height: 30px;
+    margin-right: -15px;
+    position: relative;
+    color: white;
+    @extend %acenter, %jcenter, %row, %tcenter;
+  }
+
+.row {
+    @extend %row, %acenter, %jcenter;
+}
+
+.btn-nav {
+    @extend %acenter, %btn, %row;
+    padding-left: 40px;
+    background-color:$bg2;
+    height: 60px;
+    margin: 10px 5px 10px 0px;
+    justify-content: space-around;
+    transition: background-color 500ms;
+    &:hover {
+        background-color:#e4d5f7;
+        box-shadow: 0px 5px 20px rgb(116, 115, 115);
+        .fa-mobile-alt {
+            color: $primaire;
+        }
+        .fa-list {
+            transition: color 0.5s;
+            color: $primaire;
+        }
+        .fa-store {
+            transition: color 0.5s;
+            color: $primaire;
+        }
+    }
+}
+
+.thirdbox {
+    @extend %column, %acenter;
+}
+
+.card {
+    @extend %card;
+    padding-bottom: 1%;
+}
+
+.imgcard {
+    height: 70%;
+    border-radius: 20px 20px 0px 0px;
+    object-fit: cover;
+  }
+
+.subcard {
+    @extend %row, %acenter;
+    justify-content: space-between;
+    padding-right: 50px;
+    height: auto;
+}
+
+.textcard {
+    @extend %column;
+    justify-content: space-evenly;
+    padding-left: 2%;
+}
+
+.fa-heart {
+        transition: color 0.5s;
+    &:hover {
+        color: $secondaire;
+    }
+
+}
+
+.footer {
+    background-color: #353232;
+    @extend %text1;
+    color: white;
+    padding-top: 2%;
+}
+
+.rowfooter {
+    @extend %row, %acenter;
+    margin: 2% 2% 2% 5%;
+}
+
+.new {
+    @extend %text1;
+    position: absolute;
+    height: 30px;
+    background-color: #99E2D0;
+    margin-left: 65%;
+    margin-top: 3%;
+    color: #0b571c;
+    border-radius: 5px;
+    padding: 1%;
+}
+
+.navback {
+    transform: scale(2);
+    margin-right: 10%;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.relative  {
+    position: relative;
+}
+.body {
+    @extend %jcenter;
+    background-color: $bg2;
+    width: 100%;
+    margin-top: -20%;
+    border-radius: 20px 20px 0 0;
+    padding-bottom: 20px;
+}
+
+.btn-menu {
+    @extend %row, %btn, %acenter;
+    padding: 0 0 0 4%;
+    &:hover {
+        background-color: #f7f5f5;
+    }  
+}
+
+.choixmenu  {
+    @extend %column;
+    align-items: flex-start;  
+}
+
+.menubox {
+    @extend %jcenter;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hoverprice {
+    @extend %row, %jcenter, %acenter;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    transform-origin: right;
+    border-radius: 0px 12px 12px 0px;
+    height: 100%;
+    margin: 0;
+    width: 120px;
+    color: #eeecec;
+    background-color: #99dda8;
+    z-index: 1;
+    &:hover {
+        animation-name: hoverprice;
+        
+    }
+    @keyframes hoverprice {
+        0% {transform: translateX(0);}
+        100% {transform: translateX(-100%);}
+    }  
+}
+
+.validate {
+    position: absolute;
+    margin-left: 80%;
+}
